@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Altar devocional · Santo Rosario 🌹</title>
   <meta name="description"
-    content="Acompaña a mamá en un momento de fe, paz y gratitud. Reza el Santo Rosario guiado paso a paso." />
+    content="Acompaña tu momento de fe, paz y gratitud. Reza el Santo Rosario guiado paso a paso." />
   <meta property="og:title" content="Altar devocional· Santo Rosario" />
   <meta property="og:description" content="Un regalo para orar con amor. Sigue el Santo Rosario paso a paso." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2017,6 +2017,19 @@ ${mystery.list.map(m => `<div class="mystery-item"><div class="mystery-num">${m.
       state.mode = exp === 'video' ? 'completo' : exp;
       ['completo', 'rapido', 'video'].forEach(id => {
         document.getElementById('exp-' + id).classList.toggle('active', exp === id);
+        setTimeout(() => {
+          if (exp === 'video') {
+            document.getElementById('video-col').scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          } else {
+            document.getElementById('prayer-col').scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }, 100);
       });
 
       const prayerCol = document.getElementById('prayer-col');
