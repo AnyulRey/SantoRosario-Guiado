@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Kit de Oración · Día de las Madres 🌹</title>
+  <title>Altar devocional · Santo Rosario 🌹</title>
   <meta name="description"
     content="Acompaña a mamá en un momento de fe, paz y gratitud. Reza el Santo Rosario guiado paso a paso." />
-  <meta property="og:title" content="Kit de Oración · Día de las Madres" />
+  <meta property="og:title" content="Altar devocional· Santo Rosario" />
   <meta property="og:description" content="Un regalo para orar con amor. Sigue el Santo Rosario paso a paso." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -561,17 +561,23 @@
 
     .inspir-img-wrap {
       position: relative;
-      border-radius: var(--r3);
+      border-radius: 50%;
       overflow: hidden;
-      box-shadow: var(--s3);
+      box-shadow:
+        0 0 0 6px rgba(200, 151, 58, 0.4),
+        0 0 0 12px rgba(200, 151, 58, 0.15),
+        0 20px 60px rgba(61, 43, 31, 0.4);
       max-width: 400px;
       margin: 0 auto;
+      animation: float 6s ease-in-out infinite;
     }
 
     .inspir-img-wrap img {
       width: 100%;
       display: block;
-      border-radius: var(--r3);
+      border-radius: 50%;
+      background: var(--coffee);
+      mix-blend-mode: multiply;
     }
 
     /* Overlay dorado sutil sobre la imagen */
@@ -1183,9 +1189,10 @@
 
     .instruc-img {
       width: 100%;
-      border-radius: var(--r3);
+      border-radius: 50%;
       display: block;
       box-shadow: var(--s3);
+      animation: float 6s ease-in-out infinite;
     }
 
     .instruc-img-badge {
@@ -1440,12 +1447,12 @@
 
         <!-- Texto -->
         <div class="hero-text-col">
-          <div class="hero-badge reveal">🌹 Kit de Oración · Día de las Madres</div>
+          <div class="hero-badge reveal">Altar Devocional · Virgen María</div>
           <h1 class="hero-title reveal">
             Un regalo<br />para <em>orar<br />con amor</em>
           </h1>
           <p class="hero-sub reveal">
-            Acompaña a mamá en un momento de fe, paz y gratitud.
+            Acompaña tu momento de fe, paz y gratitud.
             Reza el Santo Rosario guiado, paso a paso.
           </p>
           <div class="hero-btns reveal">
@@ -1633,12 +1640,12 @@
         <div class="reveal">
           <div class="instruc-img-wrap">
             <img src="imagen3vir.png" alt="Virgen María orando" class="instruc-img" />
-            <div class="instruc-img-badge">🌹 Kit físico incluido</div>
+            <div class="instruc-img-badge">🌹 Altar devocional físico incluido</div>
           </div>
         </div>
 
         <div class="reveal">
-          <h2 style="color:var(--coffee);margin-bottom:10px;">¿Cómo usar<br />tu Kit?</h2>
+          <h2 style="color:var(--coffee);margin-bottom:10px;">¿Cómo usar<br />tu Altar devocional?</h2>
           <p style="color:var(--text-lt);margin-bottom:36px;font-size:15px;">
             Sencillo y pensado para mamá.
           </p>
@@ -1646,7 +1653,7 @@
             <div class="step-icon">📱</div>
             <div class="step-text">
               <strong>1. Escanea el QR</strong>
-              <p>del kit con tu celular. Esta página se abrirá automáticamente.</p>
+              <p>Busca en la base de madera con la cámara tu celular. Esta página se abrirá automáticamente.</p>
             </div>
           </div>
           <div class="step-card">
@@ -1682,7 +1689,7 @@
   <section id="faq">
     <div class="container" style="max-width:640px;">
       <div class="text-center mb32 reveal">
-        <h2 class="faq-title">Preguntas<br />frecuentes</h2>
+        <h2 class="faq-title">PREGUNTAS<br />FRECUENTES</h2>
         <p class="faq-sub">Todo lo que necesitas saber</p>
       </div>
       <div id="faq-list" class="reveal"></div>
@@ -1703,7 +1710,7 @@
         "María, Madre de amor hermoso,<br />
         guía nuestros pasos hacia tu Hijo."
       </p>
-      <p>🌹 Kit de Oración · Día de las Madres · Hecho con amor y fe</p>
+      <p>🌹 Altar devocional · Virgen María · Hecho con amor y fe</p>
       <p class="footer-cross">✟ Ad Majorem Dei Gloriam</p>
     </div>
   </footer>
@@ -1752,9 +1759,9 @@
     /* Para agregar videos: pon el ID de YouTube aquí */
     const VIDEOS = {
       gloriosos: 'vL6iRpHAMcM',
-      gozosos: null,
-      dolorosos: null,
-      luminosos: null
+      gozosos: 'cmgQsJFUiKc',
+      dolorosos: 'Wpjx_NbBp7E',
+      luminosos: 'bHLUI3aEa8U'
     };
 
     const FAQS = [
@@ -1762,7 +1769,7 @@
       { q: "¿Funciona en cualquier celular?", a: "Sí, en cualquier smartphone con Chrome, Safari o Firefox. Diseñado especialmente para celular." },
       { q: "¿Cómo sé qué misterios rezar hoy?", a: "La página detecta el día automáticamente. También puedes cambiarlo tocando otro día en el selector." },
       { q: "¿Qué diferencia hay entre los modos?", a: "Rosario completo incluye todas las oraciones. Oración rápida es una versión breve. Video muestra el rosario guiado en YouTube." },
-      { q: "¿El kit trae la imagen física?", a: "Sí, el Kit incluye una hermosa imagen de la Virgen María impresa y el código QR que lleva a esta página." },
+      { q: "¿Mi compra trae la imagen física?", a: "Sí, el producto incluye una hermosa imagen de la Virgen María impresa y el código QR que lleva a esta página." },
       { q: "¿Puedo compartirlo con alguien?", a: "¡Sí! Usa el botón de WhatsApp para enviarle el enlace a quien quieras. Es completamente gratuito." }
     ];
 
@@ -2044,7 +2051,7 @@ ${mystery.list.map(m => `<div class="mystery-item"><div class="mystery-num">${m.
 
     function shareWhatsApp() {
       const msg = encodeURIComponent(
-        '🌹 Te comparto este kit de oración para el Día de las Madres.\n' +
+        '🌹 Te comparto este link que te guía la oración del Santo Rosario.\n' +
         'Reza el Santo Rosario guiado paso a paso con amor y fe.\n👇\n' +
         window.location.href
       );
