@@ -604,7 +604,7 @@
       font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--gold-lt);
+      color: var(--gold-dk);
       margin-bottom: 20px;
       display: block;
     }
@@ -763,12 +763,13 @@
     .day-pill.today-marker::after {
       content: '';
       position: absolute;
-      top: 4px;
-      right: 4px;
-      width: 6px;
-      height: 6px;
+      top: 6px;
+      right: 6px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: var(--sky);
+      background: #d62828;
+      box-shadow: 0 0 10px rgba(214, 40, 40, .6);
     }
 
     /* Nombre del misterio actual — grande */
@@ -1326,11 +1327,20 @@
        FOOTER
     ═══════════════════════════════════════════ */
     footer {
-      background: #1e130b;
+      background: linear-gradient(180deg,
+          var(--ivory) 0%,
+          var(--ivory2) 100%);
       border-top: 1px solid rgba(200, 151, 58, .15);
       padding: 56px 24px;
       text-align: center;
     }
+
+    footer .container {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
 
     .footer-imgs {
       display: flex;
@@ -1366,7 +1376,7 @@
 
     footer p {
       font-size: 13px;
-      color: rgba(250, 247, 242, .45);
+      color: var(--text-lt);
     }
 
     .footer-cross {
@@ -1375,20 +1385,30 @@
       margin-top: 12px;
     }
 
+    .footer-copy {
+      font-size: 11px;
+      letter-spacing: .08em;
+      opacity: .55;
+      text-transform: uppercase;
+      margin-top: 12px;
+      color: var(--text-lt);
+    }
+
+
     /* Toast */
     .toast {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(80px);
-      background: var(--coffee);
-      color: var(--ivory);
+      background: var(--gold);
+      color: var(--coffee);
       padding: 13px 26px;
       border-radius: 50px;
       font-size: 14px;
       font-weight: 700;
-      border: 1px solid rgba(200, 151, 58, .30);
-      box-shadow: var(--s3);
+      border: 1px solid rgba(250, 247, 242, .45);
+      box-shadow: var(--s-gold);
       z-index: 9999;
       transition: transform .35s ease, opacity .35s ease;
       opacity: 0;
@@ -1460,7 +1480,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z" />
               </svg>
-              Comenzar oración
+              Iniciar oración
             </button>
             <a href="#instrucciones" class="btn btn-outline">¿Cómo funciona?</a>
           </div>
@@ -1645,29 +1665,31 @@
         </div>
 
         <div class="reveal">
-          <h2 style="color:var(--coffee);margin-bottom:10px;">¿Cómo usar<br />tu Altar devocional?</h2>
+          <h2 style="color:var(--coffee);margin-bottom:10px;">¿Cómo empezar<br />a orar?</h2>
           <p style="color:var(--text-lt);margin-bottom:36px;font-size:15px;">
-            Sencillo y pensado para mamá.
+            Solo toma tu Altar devocional y sigue estos 4 pasos.
           </p>
           <div class="step-card">
             <div class="step-icon">📱</div>
             <div class="step-text">
               <strong>1. Escanea el QR</strong>
-              <p>Busca en la base de madera con la cámara tu celular. Esta página se abrirá automáticamente.</p>
+              <p>Abre la cámara de tu celular y apunta al código QR. </p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">🔗</div>
+            <div class="step-text">
+              <strong>2. Toca el enlace</strong>
+              <p>Tu celular abrirá automáticamente
+                esta página de oración.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-icon">▶️</div>
             <div class="step-text">
-              <strong>2. Dale play al video</strong>
-              <p>o elige la oración guiada paso a paso según prefieras.</p>
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="step-icon">📅</div>
-            <div class="step-text">
-              <strong>3. El día se detecta solo</strong>
-              <p>y muestra los misterios correspondientes automáticamente.</p>
+              <strong>3. Elige cómo orar</strong>
+              <p>Puedes escuchar el video
+                o seguir el rosario paso a paso.</p>
             </div>
           </div>
           <div class="step-card">
@@ -1711,7 +1733,8 @@
         guía nuestros pasos hacia tu Hijo."
       </p>
       <p>🌹 Altar devocional · Virgen María · Hecho con amor y fe</p>
-      <p class="footer-cross">✟ Ad Majorem Dei Gloriam</p>
+      <p class="footer-cross">✟ Ad Majorem Dei Gloriam
+      <p class="footer-copy">Copyright © Anyul Rey</p>
     </div>
   </footer>
 
@@ -1739,15 +1762,15 @@
         list: [{ num: 1, title: "La Anunciación", desc: "El Ángel Gabriel anuncia a María que será la Madre del Salvador." }, { num: 2, title: "La Visitación", desc: "María visita a su prima Isabel, quien lleva en su vientre a San Juan Bautista." }, { num: 3, title: "El Nacimiento de Jesús", desc: "Jesús nace en Belén, en un pesebre, rodeado de pobreza y amor." }, { num: 4, title: "La Presentación en el Templo", desc: "María y José presentan al Niño Jesús en el Templo de Jerusalén." }, { num: 5, title: "El Niño Jesús en el Templo", desc: "Jesús es hallado en el Templo conversando con los doctores de la Ley." }]
       },
       dolorosos: {
-        name: "Misterios Dolorosos", emoji: "🌹", intro: "Meditamos con compasión los sufrimientos que Jesús padeció por nuestra salvación.",
+        name: "Misterios Dolorosos", emoji: "✞", intro: "Meditamos con compasión los sufrimientos que Jesús padeció por nuestra salvación.",
         list: [{ num: 1, title: "La Oración en el Huerto", desc: "Jesús ora en el Huerto de Getsemaní, lleno de angustia ante su Pasión." }, { num: 2, title: "La Flagelación", desc: "Jesús es atado a una columna y azotado cruelmente por los soldados." }, { num: 3, title: "La Coronación de Espinas", desc: "Los soldados ponen una corona de espinas sobre la cabeza de Jesús." }, { num: 4, title: "Jesús carga la Cruz", desc: "Jesús carga con la Cruz camino al Calvario, en medio de insultos y golpes." }, { num: 5, title: "La Crucifixión y Muerte", desc: "Jesús es crucificado y muere en la Cruz, perdonando a sus verdugos." }]
       },
       gloriosos: {
-        name: "Misterios Gloriosos", emoji: "✨", intro: "Celebramos con gozo los triunfos de Jesús y la glorificación de su Madre.",
+        name: "Misterios Gloriosos", emoji: "🕊️", intro: "Celebramos con gozo los triunfos de Jesús y la glorificación de su Madre.",
         list: [{ num: 1, title: "La Resurrección", desc: "Jesús resucita de entre los muertos al tercer día, victorioso sobre la muerte." }, { num: 2, title: "La Ascensión", desc: "Jesús sube al cielo ante sus discípulos y se sienta a la derecha del Padre." }, { num: 3, title: "La Venida del Espíritu Santo", desc: "El Espíritu Santo desciende sobre María y los Apóstoles en Pentecostés." }, { num: 4, title: "La Asunción de María", desc: "María es llevada al Cielo en cuerpo y alma por su Hijo Jesucristo." }, { num: 5, title: "La Coronación de María", desc: "María es coronada Reina del Cielo y de la Tierra por la Santísima Trinidad." }]
       },
       luminosos: {
-        name: "Misterios Luminosos", emoji: "🌟", intro: "Contemplamos la luz del ministerio público de Jesús entre nosotros.",
+        name: "Misterios Luminosos", emoji: "✨", intro: "Contemplamos la luz del ministerio público de Jesús entre nosotros.",
         list: [{ num: 1, title: "El Bautismo en el Jordán", desc: "Jesús es bautizado por Juan y el Padre proclama: 'Este es mi Hijo amado'." }, { num: 2, title: "Las Bodas de Caná", desc: "Jesús realiza su primer milagro convirtiendo el agua en vino, a petición de María." }, { num: 3, title: "El Anuncio del Reino", desc: "Jesús proclama el Reino de Dios y llama a la conversión." }, { num: 4, title: "La Transfiguración", desc: "Jesús se transfigura ante Pedro, Santiago y Juan en el monte Tabor." }, { num: 5, title: "La Institución de la Eucaristía", desc: "Jesús instituye la Eucaristía en la Última Cena, entregándose como pan vivo." }]
       }
     };
@@ -1958,7 +1981,7 @@ ${mystery.list.map(m => `<div class="mystery-item"><div class="mystery-num">${m.
       const t = document.getElementById('toast');
       t.textContent = msg;
       t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 2800);
+      setTimeout(() => t.classList.remove('show'), 6000);
     }
 
     /* ════ ACCIONES ════ */
@@ -2100,7 +2123,7 @@ ${mystery.list.map(m => `<div class="mystery-item"><div class="mystery-num">${m.
       initReveal();
       setTimeout(() => {
         const m = MYSTERIES[DAY_MYSTERIES[state.selectedDay]];
-        showToast('🌹 Hoy: ' + m.name);
+        showToast('📿  Hoy: ' + m.name);
       }, 1000);
     });
   </script>
