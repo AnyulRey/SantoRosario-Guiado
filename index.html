@@ -1,13 +1,2089 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>un-cielo-en-casa</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Kit de Oración · Día de las Madres 🌹</title>
+  <meta name="description"
+    content="Acompaña a mamá en un momento de fe, paz y gratitud. Reza el Santo Rosario guiado paso a paso." />
+  <meta property="og:title" content="Kit de Oración · Día de las Madres" />
+  <meta property="og:description" content="Un regalo para orar con amor. Sigue el Santo Rosario paso a paso." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════
+       TOKENS — paleta cálida, luminosa, premium
+    ═══════════════════════════════════════════ */
+    :root {
+      /* Base cálida */
+      --ivory: #faf7f2;
+      --ivory2: #f2ece2;
+      --ivory3: #e8e0d4;
+      --white: #ffffff;
+      --beige: #ede5d8;
+
+      /* Café — polo oscuro cálido */
+      --coffee: #3d2b1f;
+      --coffee2: #5a3e2b;
+      --coffee3: #7a5c40;
+
+      /* Dorado — protagonista emocional */
+      --gold: #c8973a;
+      --gold-lt: #e8c87a;
+      --gold-dk: #9a6f20;
+      --gold-glow: rgba(200, 151, 58, 0.30);
+
+      /* Azul cielo suave — de las túnicas */
+      --sky: #7aafd4;
+      --sky-lt: #c2dff0;
+      --sky-dk: #4a82aa;
+
+      /* Rosa polvos */
+      --blush: #f0ddd4;
+      --blush-dk: #c49080;
+
+      /* Texto */
+      --text: #2c1f14;
+      --text-md: #5a3e2b;
+      --text-lt: #8a6e58;
+      --text-xlt: #b8a090;
+
+      /* Sombras cálidas */
+      --s1: 0 2px 8px rgba(61, 43, 31, 0.07), 0 6px 24px rgba(61, 43, 31, 0.09);
+      --s2: 0 4px 16px rgba(61, 43, 31, 0.10), 0 16px 48px rgba(61, 43, 31, 0.14);
+      --s3: 0 8px 32px rgba(61, 43, 31, 0.14), 0 32px 80px rgba(61, 43, 31, 0.18);
+      --s-gold: 0 4px 20px rgba(200, 151, 58, 0.40), 0 8px 40px rgba(200, 151, 58, 0.20);
+
+      /* Radios */
+      --r: 14px;
+      --r2: 22px;
+      --r3: 32px;
+      --r4: 48px;
+
+      /* Fuentes */
+      --fd: 'Cormorant Garamond', serif;
+      --fb: 'Lato', sans-serif;
+
+      /* Ancho */
+      --mw: 820px;
+    }
+
+    /* ═══════════════════════════════════════════
+       BASE
+    ═══════════════════════════════════════════ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--text);
+      font-family: var(--fb);
+      font-size: 17px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--fd);
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+
+    h3 {
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 600;
+    }
+
+    p {
+      font-size: clamp(15px, 2.5vw, 17px);
+    }
+
+    .container {
+      max-width: var(--mw);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Divisor dorado */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-lt), transparent);
+    }
+
+    .divider span {
+      font-size: 1.1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* Utilidades */
+    .text-center {
+      text-align: center;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .mb8 {
+      margin-bottom: 8px
+    }
+
+    .mb12 {
+      margin-bottom: 12px
+    }
+
+    .mb16 {
+      margin-bottom: 16px
+    }
+
+    .mb20 {
+      margin-bottom: 20px
+    }
+
+    .mb24 {
+      margin-bottom: 24px
+    }
+
+    .mb32 {
+      margin-bottom: 32px
+    }
+
+    .mb40 {
+      margin-bottom: 40px
+    }
+
+    .mt16 {
+      margin-top: 16px
+    }
+
+    .mt24 {
+      margin-top: 24px
+    }
+
+    .mt32 {
+      margin-top: 32px
+    }
+
+    /* Animaciones */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    @keyframes pulseRing {
+      0% {
+        box-shadow: 0 0 0 0 rgba(200, 151, 58, .5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 18px rgba(200, 151, 58, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(200, 151, 58, 0);
+      }
+    }
+
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        opacity: .5
+      }
+
+      50% {
+        opacity: 1
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ═══════════════════════════════════════════
+       BOTONES
+    ═══════════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 16px 36px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--fb);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      transition: all .25s ease;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 60%, var(--gold-dk) 100%);
+      color: var(--coffee);
+      box-shadow: var(--s-gold);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 36px rgba(200, 151, 58, .55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--coffee2);
+      border: 2px solid rgba(61, 43, 31, .25);
+    }
+
+    .btn-outline:hover {
+      background: var(--ivory2);
+      border-color: var(--gold);
+      color: var(--coffee);
+    }
+
+    .btn-coffee {
+      background: var(--coffee);
+      color: var(--ivory);
+      box-shadow: var(--s2);
+    }
+
+    .btn-coffee:hover {
+      transform: translateY(-2px);
+      background: var(--coffee2);
+    }
+
+    .btn-wa {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, .3);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 11px 22px;
+      font-size: 13px;
+    }
+
+    .btn-lg {
+      padding: 20px 44px;
+      font-size: 16px;
+    }
+
+    /* ═══════════════════════════════════════════
+       CARDS
+    ═══════════════════════════════════════════ */
+    .card {
+      background: var(--white);
+      border-radius: var(--r2);
+      box-shadow: var(--s1);
+      padding: 32px 28px;
+      border: 1px solid rgba(200, 151, 58, .10);
+    }
+
+    .card-warm {
+      background: linear-gradient(145deg, #fffdf8 0%, var(--ivory) 100%);
+      border: 1px solid rgba(200, 151, 58, .14);
+      border-radius: var(--r2);
+      padding: 32px 28px;
+      box-shadow: var(--s1);
+    }
+
+    .card-beige {
+      background: var(--beige);
+      border: 1px solid rgba(200, 151, 58, .12);
+      border-radius: var(--r2);
+      padding: 32px 28px;
+      box-shadow: var(--s1);
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO — luminoso, imagen grande protagonista
+    ═══════════════════════════════════════════ */
+    #hero {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 200, 122, .18) 0%, transparent 65%),
+        linear-gradient(175deg, #fff9f2 0%, var(--ivory) 55%, var(--ivory2) 100%);
+      padding: 64px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Textura sutil de fondo */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(122, 175, 212, .08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(200, 151, 58, .07) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media(min-width:700px) {
+      .hero-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+      }
+    }
+
+    /* Imagen hero — grande, sin recorte en círculo pequeño */
+    .hero-img-col {
+      position: relative;
+    }
+
+    .hero-img-frame {
+      position: relative;
+      border-radius: var(--r3);
+      overflow: hidden;
+      box-shadow: var(--s3), 0 0 0 6px rgba(200, 151, 58, .12);
+      animation: float 6s ease-in-out infinite;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      display: block;
+      border-radius: var(--r3);
+    }
+
+    /* Halo dorado detrás de la imagen */
+    .hero-img-halo {
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 200, 122, .25) 0%, transparent 70%);
+      filter: blur(24px);
+      pointer-events: none;
+      z-index: -1;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+
+    /* Texto hero */
+    .hero-text-col {
+      text-align: center;
+    }
+
+    @media(min-width:700px) {
+      .hero-text-col {
+        text-align: left;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200, 151, 58, .12);
+      border: 1px solid rgba(200, 151, 58, .30);
+      border-radius: 50px;
+      padding: 7px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      color: var(--coffee);
+      margin-bottom: 16px;
+    }
+
+    .hero-title em {
+      color: var(--gold-dk);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      color: var(--text-lt);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    @media(min-width:700px) {
+      .hero-sub {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media(max-width:699px) {
+      .hero-btns {
+        justify-content: center;
+      }
+    }
+
+    /* Ornamento decorativo */
+    .hero-ornament {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(200, 151, 58, .06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ═══════════════════════════════════════════
+       SECCIÓN INSPIRACIONAL — rosario físico
+    ═══════════════════════════════════════════ */
+    #inspiracion {
+      background: var(--coffee);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #inspiracion::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 30% 50%, rgba(200, 151, 58, .08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(200, 151, 58, .06) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .inspir-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media(min-width:700px) {
+      .inspir-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .inspir-img-wrap {
+      position: relative;
+      border-radius: var(--r3);
+      overflow: hidden;
+      box-shadow: var(--s3);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .inspir-img-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: var(--r3);
+    }
+
+    /* Overlay dorado sutil sobre la imagen */
+    .inspir-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(61, 43, 31, .4) 100%);
+      border-radius: var(--r3);
+    }
+
+    .inspir-text {
+      text-align: center;
+    }
+
+    @media(min-width:700px) {
+      .inspir-text {
+        text-align: left;
+      }
+    }
+
+    .inspir-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .inspir-quote {
+      font-family: var(--fd);
+      font-size: clamp(1.5rem, 5vw, 2.4rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ivory);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .inspir-quote::before {
+      content: '\201C';
+      color: var(--gold-lt);
+    }
+
+    .inspir-quote::after {
+      content: '\201D';
+      color: var(--gold-lt);
+    }
+
+    .inspir-attr {
+      font-size: 14px;
+      color: rgba(250, 247, 242, .55);
+      letter-spacing: .04em;
+      margin-bottom: 36px;
+    }
+
+    .inspir-stats {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    @media(min-width:700px) {
+      .inspir-stats {
+        justify-content: flex-start;
+      }
+    }
+
+    .inspir-stat-num {
+      font-family: var(--fd);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold-lt);
+      line-height: 1;
+    }
+
+    .inspir-stat-label {
+      font-size: 12px;
+      color: rgba(250, 247, 242, .55);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════════
+       ROSARIO — fondo ivory, cálido y claro
+    ═══════════════════════════════════════════ */
+    #rosario {
+      background:
+        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(200, 151, 58, .07) 0%, transparent 55%),
+        var(--ivory2);
+      padding: 80px 0;
+    }
+
+    /* ── Selector de día — grande y protagonista ── */
+    .day-hero {
+      background: var(--white);
+      border-radius: var(--r3);
+      box-shadow: var(--s2);
+      padding: 32px 28px;
+      border: 1px solid rgba(200, 151, 58, .12);
+      margin-bottom: 32px;
+    }
+
+    .day-hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      margin-bottom: 18px;
+      display: block;
+      text-align: center;
+    }
+
+    .day-pills {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+
+    @media(max-width:500px) {
+      .day-pills {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .day-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 6px;
+      border-radius: var(--r2);
+      border: 1.5px solid var(--ivory3);
+      background: var(--ivory);
+      cursor: pointer;
+      transition: all .2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .day-pill-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-lt);
+      letter-spacing: .04em;
+    }
+
+    .day-pill-emoji {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .day-pill-mystery {
+      font-size: 10px;
+      color: var(--text-xlt);
+      letter-spacing: .03em;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .day-pill.active {
+      background: linear-gradient(145deg, var(--gold-lt) 0%, var(--gold) 100%);
+      border-color: var(--gold);
+      box-shadow: var(--s-gold);
+    }
+
+    .day-pill.active .day-pill-name {
+      color: var(--coffee);
+    }
+
+    .day-pill.active .day-pill-mystery {
+      color: rgba(61, 43, 31, .7);
+    }
+
+    .day-pill.today-marker {
+      border-color: var(--sky);
+      position: relative;
+    }
+
+    .day-pill.today-marker::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sky);
+    }
+
+    /* Nombre del misterio actual — grande */
+    .mystery-display {
+      text-align: center;
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: var(--ivory);
+      border-radius: var(--r2);
+      border: 1px solid rgba(200, 151, 58, .12);
+    }
+
+    .mystery-display-name {
+      font-family: var(--fd);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--coffee);
+    }
+
+    .mystery-display-sub {
+      font-size: 13px;
+      color: var(--text-lt);
+      margin-top: 4px;
+    }
+
+    /* ── Modos de experiencia — cards grandes ── */
+    .exp-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    @media(min-width:600px) {
+      .exp-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .exp-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 16px;
+      border-radius: var(--r2);
+      border: 2px solid var(--ivory3);
+      background: var(--white);
+      cursor: pointer;
+      transition: all .22s;
+      -webkit-tap-highlight-color: transparent;
+      text-align: center;
+    }
+
+    .exp-card-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .exp-card-title {
+      font-family: var(--fd);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--coffee);
+    }
+
+    .exp-card-desc {
+      font-size: 13px;
+      color: var(--text-lt);
+      line-height: 1.45;
+    }
+
+    .exp-card.active {
+      border-color: var(--gold);
+      background: linear-gradient(145deg, #fffdf5 0%, #fff8e8 100%);
+      box-shadow: var(--s-gold);
+    }
+
+    .exp-card.active .exp-card-title {
+      color: var(--gold-dk);
+    }
+
+    /* ── Panel de video ── */
+    .video-panel {
+      margin-bottom: 24px;
+    }
+
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: var(--r2);
+      overflow: hidden;
+      box-shadow: var(--s2);
+      background: var(--coffee);
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-coming {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: linear-gradient(145deg, var(--coffee) 0%, var(--coffee2) 100%);
+    }
+
+    .play-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--s-gold);
+      animation: pulseRing 2.5s ease-in-out infinite;
+      border: none;
+      cursor: pointer;
+    }
+
+    .play-btn svg {
+      margin-left: 5px;
+    }
+
+    .video-coming-title {
+      font-family: var(--fd);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ivory);
+      text-align: center;
+    }
+
+    .video-coming-sub {
+      font-size: 13px;
+      color: rgba(250, 247, 242, .55);
+      text-align: center;
+      max-width: 260px;
+      line-height: 1.5;
+    }
+
+    /* ── Layout oración: video + guiada side by side ── */
+    .oracion-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media(min-width:700px) {
+      .oracion-layout {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    /* ── Barra de progreso ── */
+    .progress-wrap {
+      margin-bottom: 16px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .progress-step-lbl {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold-dk);
+      letter-spacing: .02em;
+    }
+
+    .progress-count {
+      font-size: 12px;
+      color: var(--text-lt);
+    }
+
+    .progress-track {
+      background: var(--ivory3);
+      border-radius: 50px;
+      height: 8px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 50px;
+      background: linear-gradient(90deg, var(--gold-lt), var(--gold));
+      transition: width .5s cubic-bezier(.4, 0, .2, 1);
+      box-shadow: 0 0 10px rgba(200, 151, 58, .35);
+    }
+
+    /* ── Card de la oración activa ── */
+    .prayer-step {
+      animation: fadeUp .35s ease;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(200, 151, 58, .10);
+      color: var(--gold-dk);
+      border: 1px solid rgba(200, 151, 58, .22);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .prayer-title {
+      font-family: var(--fd);
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 600;
+      color: var(--coffee);
+      margin-bottom: 16px;
+    }
+
+    .prayer-text {
+      color: var(--text-md);
+      line-height: 2;
+      font-size: clamp(15px, 2.5vw, 17px);
+    }
+
+    .prayer-text p {
+      margin-bottom: 14px;
+    }
+
+    .prayer-text strong {
+      color: var(--coffee);
+    }
+
+    /* ── Cuentas (beads) ── */
+    .ave-wrap {
+      background: var(--ivory2);
+      border-radius: var(--r2);
+      padding: 20px;
+      margin-top: 12px;
+      border: 1px solid rgba(200, 151, 58, .10);
+    }
+
+    .ave-title {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      margin-bottom: 14px;
+    }
+
+    .ave-counter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .ave-bead {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--ivory3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-lt);
+      cursor: pointer;
+      transition: all .18s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .ave-bead.done {
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+      border-color: var(--gold);
+      color: var(--coffee);
+      transform: scale(1.08);
+      box-shadow: 0 3px 12px rgba(200, 151, 58, .40);
+    }
+
+    .ave-label {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-lt);
+      margin-top: 10px;
+    }
+
+    /* Misterio individual */
+    .mystery-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .mystery-num {
+      min-width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--fd);
+      font-size: .95rem;
+      color: var(--coffee);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .mystery-content h4 {
+      font-family: var(--fd);
+      font-size: 1.05rem;
+      color: var(--coffee);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .mystery-content p {
+      font-size: 13px;
+      color: var(--text-lt);
+    }
+
+    /* ── Navegación — sin scroll al top ── */
+    .nav-wrap {
+      margin-top: 20px;
+    }
+
+    .nav-main {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .nav-main .btn {
+      flex: 1;
+    }
+
+    .nav-reset {
+      width: 100%;
+      display: block;
+      text-align: center;
+      background: transparent;
+      border: 1.5px solid var(--ivory3);
+      color: var(--text-lt);
+      border-radius: 50px;
+      padding: 12px;
+      font-family: var(--fb);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-reset:hover {
+      background: var(--ivory2);
+      color: var(--text);
+      border-color: var(--gold-lt);
+    }
+
+    /* ── Compartir ── */
+    .share-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(200, 151, 58, .12);
+    }
+
+    /* ═══════════════════════════════════════════
+       INSTRUCCIONES
+    ═══════════════════════════════════════════ */
+    #instrucciones {
+      background: var(--white);
+      padding: 80px 0;
+    }
+
+    .instruc-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media(min-width:700px) {
+      .instruc-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .instruc-img-wrap {
+      position: relative;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .instruc-img {
+      width: 100%;
+      border-radius: var(--r3);
+      display: block;
+      box-shadow: var(--s3);
+    }
+
+    .instruc-img-badge {
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--coffee);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 50px;
+      white-space: nowrap;
+      box-shadow: var(--s-gold);
+      letter-spacing: .06em;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+
+    .step-icon {
+      min-width: 52px;
+      height: 52px;
+      border-radius: var(--r);
+      background: linear-gradient(135deg, var(--ivory2) 0%, var(--beige) 100%);
+      border: 1.5px solid rgba(200, 151, 58, .20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      box-shadow: var(--s1);
+    }
+
+    .step-text strong {
+      color: var(--coffee);
+      font-size: 16px;
+    }
+
+    .step-text p {
+      font-size: 14px;
+      color: var(--text-lt);
+      margin-top: 3px;
+    }
+
+    /* ═══════════════════════════════════════════
+       FAQ — café cálido
+    ═══════════════════════════════════════════ */
+    #faq {
+      background: linear-gradient(180deg, var(--coffee) 0%, #2c1f14 100%);
+      padding: 80px 0;
+    }
+
+    .faq-title {
+      color: var(--ivory);
+    }
+
+    .faq-sub {
+      color: rgba(250, 247, 242, .55);
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(250, 247, 242, .08);
+      padding: 20px 0;
+    }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .faq-q-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(250, 247, 242, .90);
+      line-height: 1.45;
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(200, 151, 58, .12);
+      border: 1px solid rgba(200, 151, 58, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+
+    .faq-chevron svg {
+      color: var(--gold-lt);
+      transition: transform .25s ease;
+    }
+
+    .faq-item.open .faq-chevron {
+      background: rgba(200, 151, 58, .25);
+    }
+
+    .faq-item.open .faq-chevron svg {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      font-size: 15px;
+      color: rgba(250, 247, 242, .55);
+      margin-top: 12px;
+      display: none;
+      line-height: 1.75;
+      padding-right: 46px;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+      animation: fadeUp .3s ease;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: #1e130b;
+      border-top: 1px solid rgba(200, 151, 58, .15);
+      padding: 56px 24px;
+      text-align: center;
+    }
+
+    .footer-imgs {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .footer-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(200, 151, 58, .35);
+      opacity: .8;
+      transition: opacity .2s, transform .2s;
+      box-shadow: var(--s2);
+    }
+
+    .footer-img:hover {
+      opacity: 1;
+      transform: scale(1.06);
+    }
+
+    .footer-phrase {
+      font-family: var(--fd);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--gold-lt);
+      margin-bottom: 14px;
+      line-height: 1.65;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: rgba(250, 247, 242, .45);
+    }
+
+    .footer-cross {
+      font-size: 11px;
+      opacity: .25;
+      margin-top: 12px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--coffee);
+      color: var(--ivory);
+      padding: 13px 26px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid rgba(200, 151, 58, .30);
+      box-shadow: var(--s3);
+      z-index: 9999;
+      transition: transform .35s ease, opacity .35s ease;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive extra */
+    @media(max-width:480px) {
+      .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-main {
+        flex-direction: column;
+      }
+
+      .inspir-stats {
+        gap: 20px;
+      }
+    }
+
+    @media(min-width:600px) {
+
+      .card,
+      .card-warm,
+      .card-beige {
+        padding: 36px 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Imagen grande protagonista -->
+        <div class="hero-img-col reveal">
+          <div class="hero-img-halo"></div>
+          <div class="hero-img-frame">
+            <img src="virgen1HDredonda.png" alt="Virgen María con el Niño Jesús" />
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div class="hero-text-col">
+          <div class="hero-badge reveal">🌹 Kit de Oración · Día de las Madres</div>
+          <h1 class="hero-title reveal">
+            Un regalo<br />para <em>orar<br />con amor</em>
+          </h1>
+          <p class="hero-sub reveal">
+            Acompaña a mamá en un momento de fe, paz y gratitud.
+            Reza el Santo Rosario guiado, paso a paso.
+          </p>
+          <div class="hero-btns reveal">
+            <button class="btn btn-gold btn-lg" onclick="scrollToRosary()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Comenzar oración
+            </button>
+            <a href="#instrucciones" class="btn btn-outline">¿Cómo funciona?</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="hero-ornament"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     SECCIÓN INSPIRACIONAL
+══════════════════════════════════════════ -->
+  <section id="inspiracion">
+    <div class="container">
+      <div class="inspir-inner">
+
+        <!-- Imagen del rosario físico -->
+        <div class="reveal">
+          <div class="inspir-img-wrap">
+            <img src="imagen2virgen.png" alt="Virgen María con rosas y rosario" />
+          </div>
+        </div>
+
+        <!-- Texto inspiracional -->
+        <div class="inspir-text reveal">
+          <span class="inspir-eyebrow">✦ El poder del Rosario</span>
+          <p class="inspir-quote">
+            El Rosario es la oración más poderosa
+            que existe. En él encontramos paz,
+            fortaleza y la ternura de una Madre.
+          </p>
+          <p class="inspir-attr">— Tradición Mariana Católica</p>
+
+          <div class="inspir-stats">
+            <div>
+              <div class="inspir-stat-num">20</div>
+              <div class="inspir-stat-label">Misterios</div>
+            </div>
+            <div>
+              <div class="inspir-stat-num">53</div>
+              <div class="inspir-stat-label">Ave Marías</div>
+            </div>
+            <div>
+              <div class="inspir-stat-num">∞</div>
+              <div class="inspir-stat-label">Gracias</div>
+            </div>
+          </div>
+
+          <div style="margin-top:36px;">
+            <button class="btn btn-gold" onclick="scrollToRosary()">
+              📿 Rezar ahora
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     ROSARIO
+══════════════════════════════════════════ -->
+  <section id="rosario">
+    <div class="container">
+
+      <div class="text-center mb40 reveal">
+        <h2 style="color:var(--coffee);">El Santo Rosario</h2>
+        <p style="color:var(--text-lt);margin-top:10px;font-size:16px;">
+          Selecciona el día y elige cómo quieres orar
+        </p>
+      </div>
+
+      <!-- Selector de día — grande y protagonista -->
+      <div class="day-hero reveal">
+        <span class="day-hero-label">📅 ¿Qué día es hoy? — Toca para cambiar</span>
+        <div class="day-pills" id="day-pills"></div>
+        <div class="mystery-display" id="mystery-display">
+          <div class="mystery-display-name" id="mystery-display-name">Cargando...</div>
+          <div class="mystery-display-sub" id="mystery-display-sub"></div>
+        </div>
+      </div>
+
+      <!-- Modos de experiencia — cards grandes claras -->
+      <div class="exp-cards reveal" id="exp-cards">
+        <div class="exp-card active" id="exp-completo" onclick="setExp('completo')">
+          <div class="exp-card-icon">📿</div>
+          <div class="exp-card-title">Rosario completo</div>
+          <div class="exp-card-desc">Todas las oraciones paso a paso</div>
+        </div>
+        <div class="exp-card" id="exp-rapido" onclick="setExp('rapido')">
+          <div class="exp-card-icon">⚡</div>
+          <div class="exp-card-title">Oración rápida</div>
+          <div class="exp-card-desc">Solo lo esencial, en pocos minutos</div>
+        </div>
+        <div class="exp-card" id="exp-video" onclick="setExp('video')">
+          <div class="exp-card-icon">▶️</div>
+          <div class="exp-card-title">Ver y escuchar</div>
+          <div class="exp-card-desc">Sigue el rosario en video guiado</div>
+        </div>
+      </div>
+
+      <!-- Layout: video + oración lado a lado -->
+      <div class="oracion-layout reveal" id="oracion-layout">
+
+        <!-- Columna izquierda: Video (siempre visible) -->
+        <div id="video-col">
+          <div style="margin-bottom:12px;">
+            <span
+              style="font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--text-lt);">
+              ▶ Video guiado
+            </span>
+          </div>
+          <div class="video-wrap" id="video-wrap">
+            <!-- Se llena dinámicamente -->
+          </div>
+          <p style="font-size:12px;color:var(--text-xlt);margin-top:8px;text-align:center;">
+            🔊 Activa el sonido para escuchar la oración
+          </p>
+        </div>
+
+        <!-- Columna derecha: Oración guiada (oculta en modo video) -->
+        <div id="prayer-col">
+          <!-- Progreso -->
+          <div class="progress-wrap" id="progress-wrap">
+            <div class="progress-header">
+              <span class="progress-step-lbl" id="progress-text">Paso 1</span>
+              <span class="progress-count" id="progress-pct">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progress-bar" style="width:0%"></div>
+            </div>
+          </div>
+
+          <!-- Card de oración -->
+          <div class="card" id="prayer-card">
+            <div id="prayer-step"></div>
+          </div>
+
+          <!-- Cuentas Ave Marías -->
+          <div id="ave-section" class="hidden">
+            <div class="ave-wrap">
+              <p class="ave-title">Toca cada cuenta al rezar</p>
+              <div class="ave-counter" id="ave-counter"></div>
+              <p class="ave-label" id="ave-label">0 / 10 Ave Marías</p>
+            </div>
+          </div>
+
+          <!-- Navegación — sin scroll al top -->
+          <div class="nav-wrap">
+            <div class="nav-main">
+              <button class="btn btn-outline" id="btn-prev" onclick="prevStep()">← Anterior</button>
+              <button class="btn btn-gold" id="btn-next" onclick="nextStep()">Siguiente →</button>
+            </div>
+            <button class="nav-reset" onclick="resetRosary()">🔄 Reiniciar oración</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Compartir -->
+      <div class="share-row reveal">
+        <button class="btn btn-wa btn-sm" onclick="shareWhatsApp()">💬 Compartir por WhatsApp</button>
+        <button class="btn btn-outline btn-sm" onclick="copyLink()">🔗 Copiar enlace</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     INSTRUCCIONES
+══════════════════════════════════════════ -->
+  <section id="instrucciones">
+    <div class="container">
+      <div class="instruc-layout">
+
+        <div class="reveal">
+          <div class="instruc-img-wrap">
+            <img src="imagen3vir.png" alt="Virgen María orando" class="instruc-img" />
+            <div class="instruc-img-badge">🌹 Kit físico incluido</div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h2 style="color:var(--coffee);margin-bottom:10px;">¿Cómo usar<br />tu Kit?</h2>
+          <p style="color:var(--text-lt);margin-bottom:36px;font-size:15px;">
+            Sencillo y pensado para mamá.
+          </p>
+          <div class="step-card">
+            <div class="step-icon">📱</div>
+            <div class="step-text">
+              <strong>1. Escanea el QR</strong>
+              <p>del kit con tu celular. Esta página se abrirá automáticamente.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">▶️</div>
+            <div class="step-text">
+              <strong>2. Dale play al video</strong>
+              <p>o elige la oración guiada paso a paso según prefieras.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">📅</div>
+            <div class="step-text">
+              <strong>3. El día se detecta solo</strong>
+              <p>y muestra los misterios correspondientes automáticamente.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">🕊️</div>
+            <div class="step-text">
+              <strong>4. Tómate tu tiempo</strong>
+              <p>Este momento es tuyo. La Virgen María te acompaña.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════ -->
+  <section id="faq">
+    <div class="container" style="max-width:640px;">
+      <div class="text-center mb32 reveal">
+        <h2 class="faq-title">Preguntas<br />frecuentes</h2>
+        <p class="faq-sub">Todo lo que necesitas saber</p>
+      </div>
+      <div id="faq-list" class="reveal"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-imgs">
+        <img src="virgen1HDredonda.png" alt="" class="footer-img" />
+        <img src="imagen2virgen.png" alt="" class="footer-img" />
+        <img src="imagen3vir.png" alt="" class="footer-img" />
+      </div>
+      <p class="footer-phrase">
+        "María, Madre de amor hermoso,<br />
+        guía nuestros pasos hacia tu Hijo."
+      </p>
+      <p>🌹 Kit de Oración · Día de las Madres · Hecho con amor y fe</p>
+      <p class="footer-cross">✟ Ad Majorem Dei Gloriam</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+  <script>
+    /* ════ DATA ════ */
+    const PRAYERS = {
+      cruz: { title: "Señal de la Cruz", text: `<p>Por la señal de la Santa Cruz,<br/>de nuestros enemigos,<br/>líbranos, Señor Dios nuestro.</p><p>En el nombre del Padre,<br/>y del Hijo,<br/>y del Espíritu Santo.<br/><strong>Amén.</strong></p>` },
+      credo: { title: "Credo Apostólico", text: `<p>Creo en Dios, Padre todopoderoso,<br/>Creador del cielo y de la tierra.</p><p>Creo en Jesucristo, su único Hijo, nuestro Señor,<br/>que fue concebido por obra y gracia del Espíritu Santo,<br/>nació de santa María Virgen,<br/>padeció bajo el poder de Poncio Pilato,<br/>fue crucificado, muerto y sepultado,<br/>descendió a los infiernos,<br/>al tercer día resucitó de entre los muertos,<br/>subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso.<br/>Desde allí ha de venir a juzgar a vivos y muertos.</p><p>Creo en el Espíritu Santo,<br/>la santa Iglesia católica,<br/>la comunión de los santos,<br/>el perdón de los pecados,<br/>la resurrección de la carne<br/>y la vida eterna. <strong>Amén.</strong></p>` },
+      padrenuestro: { title: "Padre Nuestro", text: `<p>Padre nuestro, que estás en el cielo,<br/>santificado sea tu nombre;<br/>venga a nosotros tu reino;<br/>hágase tu voluntad<br/>en la tierra como en el cielo.</p><p>Danos hoy nuestro pan de cada día;<br/>perdona nuestras ofensas,<br/>como también nosotros perdonamos<br/>a los que nos ofenden;<br/>no nos dejes caer en tentación,<br/>y líbranos del mal. <strong>Amén.</strong></p>` },
+      avemaria: { title: "Ave María", text: `<p>Dios te salve, María;<br/>llena eres de gracia;<br/>el Señor es contigo;<br/>bendita tú eres entre todas las mujeres,<br/>y bendito es el fruto de tu vientre, Jesús.</p><p>Santa María, Madre de Dios,<br/>ruega por nosotros, pecadores,<br/>ahora y en la hora de nuestra muerte. <strong>Amén.</strong></p>` },
+      gloria: { title: "Gloria", text: `<p>Gloria al Padre,<br/>y al Hijo,<br/>y al Espíritu Santo.<br/>Como era en el principio,<br/>ahora y siempre,<br/>por los siglos de los siglos. <strong>Amén.</strong></p>` },
+      jaculatoria: { title: "Jaculatoria de Fátima", text: `<p>¡Oh Jesús mío,<br/>perdona nuestros pecados,<br/>líbranos del fuego del infierno,<br/>lleva al cielo a todas las almas,<br/>especialmente a las más necesitadas<br/>de tu misericordia!</p>` },
+      letanias: { title: "Letanías Lauretanas", text: `<p>Señor, ten piedad. <em>Señor, ten piedad.</em><br/>Cristo, ten piedad. <em>Cristo, ten piedad.</em></p><p>Santa María. <em>Ruega por nosotros.</em><br/>Santa Madre de Dios. <em>Ruega por nosotros.</em><br/>Madre de Cristo. <em>Ruega por nosotros.</em><br/>Madre de la Iglesia. <em>Ruega por nosotros.</em><br/>Madre de la gracia divina. <em>Ruega por nosotros.</em><br/>Madre purísima. <em>Ruega por nosotros.</em><br/>Virgen fidelísima. <em>Ruega por nosotros.</em><br/>Reina de todas las familias. <em>Ruega por nosotros.</em><br/>Reina de la paz. <em>Ruega por nosotros.</em></p><p>Cordero de Dios, que quitas el pecado del mundo. <em>Perdónanos, Señor.</em><br/>Cordero de Dios, que quitas el pecado del mundo. <em>Ten misericordia de nosotros.</em></p>` },
+      final: { title: "Salve Regina", text: `<p>Dios te salve, Reina y Madre de misericordia,<br/>vida, dulzura y esperanza nuestra. Dios te salve.<br/>A ti llamamos los desterrados hijos de Eva.<br/>A ti suspiramos, gimiendo y llorando<br/>en este valle de lágrimas.</p><p>Ea, pues, Señora, abogada nuestra,<br/>vuelve a nosotros esos tus ojos misericordiosos.<br/>Y después de este destierro,<br/>muéstranos a Jesús,<br/>fruto bendito de tu vientre.</p><p>¡Oh clementísima, oh piadosa,<br/>oh dulce Virgen María!</p><p>Ruega por nosotros, Santa Madre de Dios,<br/>para que seamos dignos<br/>de las promesas de Cristo. <strong>Amén.</strong></p>` }
+    };
+
+    const MYSTERIES = {
+      gozosos: {
+        name: "Misterios Gozosos", emoji: "🌸", intro: "Contemplamos con alegría los momentos más hermosos de la vida de Jesús y María.",
+        list: [{ num: 1, title: "La Anunciación", desc: "El Ángel Gabriel anuncia a María que será la Madre del Salvador." }, { num: 2, title: "La Visitación", desc: "María visita a su prima Isabel, quien lleva en su vientre a San Juan Bautista." }, { num: 3, title: "El Nacimiento de Jesús", desc: "Jesús nace en Belén, en un pesebre, rodeado de pobreza y amor." }, { num: 4, title: "La Presentación en el Templo", desc: "María y José presentan al Niño Jesús en el Templo de Jerusalén." }, { num: 5, title: "El Niño Jesús en el Templo", desc: "Jesús es hallado en el Templo conversando con los doctores de la Ley." }]
+      },
+      dolorosos: {
+        name: "Misterios Dolorosos", emoji: "🌹", intro: "Meditamos con compasión los sufrimientos que Jesús padeció por nuestra salvación.",
+        list: [{ num: 1, title: "La Oración en el Huerto", desc: "Jesús ora en el Huerto de Getsemaní, lleno de angustia ante su Pasión." }, { num: 2, title: "La Flagelación", desc: "Jesús es atado a una columna y azotado cruelmente por los soldados." }, { num: 3, title: "La Coronación de Espinas", desc: "Los soldados ponen una corona de espinas sobre la cabeza de Jesús." }, { num: 4, title: "Jesús carga la Cruz", desc: "Jesús carga con la Cruz camino al Calvario, en medio de insultos y golpes." }, { num: 5, title: "La Crucifixión y Muerte", desc: "Jesús es crucificado y muere en la Cruz, perdonando a sus verdugos." }]
+      },
+      gloriosos: {
+        name: "Misterios Gloriosos", emoji: "✨", intro: "Celebramos con gozo los triunfos de Jesús y la glorificación de su Madre.",
+        list: [{ num: 1, title: "La Resurrección", desc: "Jesús resucita de entre los muertos al tercer día, victorioso sobre la muerte." }, { num: 2, title: "La Ascensión", desc: "Jesús sube al cielo ante sus discípulos y se sienta a la derecha del Padre." }, { num: 3, title: "La Venida del Espíritu Santo", desc: "El Espíritu Santo desciende sobre María y los Apóstoles en Pentecostés." }, { num: 4, title: "La Asunción de María", desc: "María es llevada al Cielo en cuerpo y alma por su Hijo Jesucristo." }, { num: 5, title: "La Coronación de María", desc: "María es coronada Reina del Cielo y de la Tierra por la Santísima Trinidad." }]
+      },
+      luminosos: {
+        name: "Misterios Luminosos", emoji: "🌟", intro: "Contemplamos la luz del ministerio público de Jesús entre nosotros.",
+        list: [{ num: 1, title: "El Bautismo en el Jordán", desc: "Jesús es bautizado por Juan y el Padre proclama: 'Este es mi Hijo amado'." }, { num: 2, title: "Las Bodas de Caná", desc: "Jesús realiza su primer milagro convirtiendo el agua en vino, a petición de María." }, { num: 3, title: "El Anuncio del Reino", desc: "Jesús proclama el Reino de Dios y llama a la conversión." }, { num: 4, title: "La Transfiguración", desc: "Jesús se transfigura ante Pedro, Santiago y Juan en el monte Tabor." }, { num: 5, title: "La Institución de la Eucaristía", desc: "Jesús instituye la Eucaristía en la Última Cena, entregándose como pan vivo." }]
+      }
+    };
+
+    const DAY_MYSTERIES = { 0: 'gloriosos', 1: 'gozosos', 2: 'dolorosos', 3: 'gloriosos', 4: 'luminosos', 5: 'dolorosos', 6: 'gozosos' };
+    const DAY_SHORT = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    const DAY_FULL = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+
+    /* Para agregar videos: pon el ID de YouTube aquí */
+    const VIDEOS = {
+      gloriosos: 'vL6iRpHAMcM',
+      gozosos: null,
+      dolorosos: null,
+      luminosos: null
+    };
+
+    const FAQS = [
+      { q: "¿Necesito internet para usarlo?", a: "Sí, la primera vez necesitas conexión. Una vez cargada la página, puedes continuar sin internet." },
+      { q: "¿Funciona en cualquier celular?", a: "Sí, en cualquier smartphone con Chrome, Safari o Firefox. Diseñado especialmente para celular." },
+      { q: "¿Cómo sé qué misterios rezar hoy?", a: "La página detecta el día automáticamente. También puedes cambiarlo tocando otro día en el selector." },
+      { q: "¿Qué diferencia hay entre los modos?", a: "Rosario completo incluye todas las oraciones. Oración rápida es una versión breve. Video muestra el rosario guiado en YouTube." },
+      { q: "¿El kit trae la imagen física?", a: "Sí, el Kit incluye una hermosa imagen de la Virgen María impresa y el código QR que lleva a esta página." },
+      { q: "¿Puedo compartirlo con alguien?", a: "¡Sí! Usa el botón de WhatsApp para enviarle el enlace a quien quieras. Es completamente gratuito." }
+    ];
+
+    /* ════ STATE ════ */
+    const state = {
+      mode: 'completo',
+      selectedDay: new Date().getDay(),
+      currentStep: 0,
+      aveCount: 0
+    };
+    let STEPS = [];
+
+    function buildSteps() {
+      const m = MYSTERIES[DAY_MYSTERIES[state.selectedDay]];
+      if (state.mode === 'rapido') {
+        return [
+          { type: 'prayer', key: 'cruz', icon: '✟' },
+          { type: 'prayer', key: 'padrenuestro', icon: '🙏' },
+          { type: 'mystery_intro', icon: '📿' },
+          ...m.list.map((_, i) => ({ type: 'mystery_item', index: i, icon: '🌸' })),
+          { type: 'prayer', key: 'final', icon: '🕊️' },
+          { type: 'end', icon: '🌹' }
+        ];
+      }
+      const s = [
+        { type: 'prayer', key: 'cruz', icon: '✟' },
+        { type: 'prayer', key: 'credo', icon: '📖' },
+        { type: 'prayer', key: 'padrenuestro', icon: '🙏' },
+        { type: 'ave3', icon: '📿' },
+        { type: 'prayer', key: 'gloria', icon: '✨' },
+        { type: 'mystery_intro', icon: '📿' }
+      ];
+      m.list.forEach((_, i) => {
+        s.push({ type: 'mystery_item', index: i, icon: '🌸' });
+        s.push({ type: 'ave10', mysteryIndex: i, icon: '📿' });
+        s.push({ type: 'prayer', key: 'gloria', icon: '✨' });
+        s.push({ type: 'prayer', key: 'jaculatoria', icon: '🕊️' });
+      });
+      s.push({ type: 'prayer', key: 'letanias', icon: '📜' });
+      s.push({ type: 'prayer', key: 'final', icon: '🕊️' });
+      s.push({ type: 'end', icon: '🌹' });
+      return s;
+    }
+
+    /* ════ RENDER ════ */
+    function renderDayPills() {
+      const today = new Date().getDay();
+      document.getElementById('day-pills').innerHTML = DAY_SHORT.map((n, i) => {
+        const key = DAY_MYSTERIES[i];
+        const m = MYSTERIES[key];
+        return `
+      <div class="day-pill${i === state.selectedDay ? ' active' : ''}${i === today ? ' today-marker' : ''}"
+           onclick="selectDay(${i})">
+        <span class="day-pill-emoji">${m.emoji}</span>
+        <span class="day-pill-name">${n}</span>
+        <span class="day-pill-mystery">${m.name.replace('Misterios ', '')}</span>
+      </div>`;
+      }).join('');
+
+      const cur = MYSTERIES[DAY_MYSTERIES[state.selectedDay]];
+      const today2 = new Date().getDay();
+      document.getElementById('mystery-display-name').textContent = cur.emoji + '  ' + cur.name;
+      document.getElementById('mystery-display-sub').textContent =
+        state.selectedDay === today2
+          ? 'Misterios de hoy · ' + DAY_FULL[state.selectedDay]
+          : DAY_FULL[state.selectedDay];
+    }
+
+    function renderVideo() {
+      const key = DAY_MYSTERIES[state.selectedDay];
+      const vid = VIDEOS[key];
+      const mData = MYSTERIES[key];
+      const wrap = document.getElementById('video-wrap');
+      if (vid) {
+        wrap.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1"
+        title="${mData.name} — Santo Rosario"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy">
+      </iframe>`;
+      } else {
+        wrap.innerHTML = `
+      <div class="video-coming">
+        <div class="play-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#3d2b1f"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p class="video-coming-title">${mData.emoji} ${mData.name}</p>
+        <p class="video-coming-sub">Video próximamente.<br/>Usa la oración guiada 🙏</p>
+      </div>`;
+      }
+    }
+
+    function renderStep() {
+      const step = STEPS[state.currentStep];
+      const stepEl = document.getElementById('prayer-step');
+      const aveSec = document.getElementById('ave-section');
+      const mystery = MYSTERIES[DAY_MYSTERIES[state.selectedDay]];
+      aveSec.classList.add('hidden');
+      let html = '';
+
+      if (step.type === 'prayer') {
+        const p = PRAYERS[step.key];
+        html = `<div class="step-badge">${step.icon} Oración</div>
+<h3 class="prayer-title">${p.title}</h3>
+<div class="prayer-text">${p.text}</div>`;
+
+      } else if (step.type === 'mystery_intro') {
+        html = `<div class="step-badge">${step.icon} Misterios de hoy</div>
+<h3 class="prayer-title">${mystery.name}</h3>
+<p class="prayer-text" style="font-style:italic;color:var(--text-lt);margin-bottom:16px;">${mystery.intro}</p>
+<div class="divider"><span>${mystery.emoji}</span></div>
+${mystery.list.map(m => `<div class="mystery-item"><div class="mystery-num">${m.num}</div><div class="mystery-content"><h4>${m.title}</h4></div></div>`).join('')}`;
+
+      } else if (step.type === 'mystery_item') {
+        const m = mystery.list[step.index];
+        html = `<div class="step-badge">📿 Misterio ${m.num} de 5</div>
+<h3 class="prayer-title">${m.title}</h3>
+<p class="prayer-text" style="font-style:italic;color:var(--text-lt);margin-bottom:16px;">${m.desc}</p>
+<div class="divider"><span>🙏</span></div>
+<div class="prayer-text">${PRAYERS.padrenuestro.text}</div>`;
+
+      } else if (step.type === 'ave10') {
+        const m = mystery.list[step.mysteryIndex];
+        state.aveCount = 0; aveSec.classList.remove('hidden'); renderAveCounts(10);
+        html = `<div class="step-badge">📿 ${mystery.name} · Misterio ${m.num}</div>
+<h3 class="prayer-title">10 Ave Marías</h3>
+<div class="prayer-text">${PRAYERS.avemaria.text}</div>`;
+
+      } else if (step.type === 'ave3') {
+        state.aveCount = 0; aveSec.classList.remove('hidden'); renderAveCounts(3);
+        html = `<div class="step-badge">📿 Inicio del Rosario</div>
+<h3 class="prayer-title">3 Ave Marías iniciales</h3>
+<p class="prayer-text" style="font-style:italic;color:var(--text-lt);margin-bottom:14px;">Por el aumento de la fe, esperanza y caridad.</p>
+<div class="prayer-text">${PRAYERS.avemaria.text}</div>`;
+
+      } else if (step.type === 'end') {
+        html = `<div style="text-align:center;padding:20px 0;">
+<div style="font-size:3rem;margin-bottom:16px;">🌹</div>
+<h3 class="prayer-title" style="color:var(--coffee);">¡Rosario completado!</h3>
+<p class="prayer-text" style="color:var(--text-lt);margin:14px 0;">
+  Has rezado el Santo Rosario con amor y devoción.<br/>
+  Que la Virgen María llene tu corazón de paz y bendiga tu hogar.
+</p>
+<p style="font-family:var(--fd);font-size:1.3rem;font-style:italic;color:var(--gold-dk);">
+  "Ave María, llena eres de gracia."
+</p></div>`;
+      }
+
+      stepEl.innerHTML = `<div class="prayer-step">${html}</div>`;
+
+      const total = STEPS.length;
+      const pct = Math.round((state.currentStep / (total - 1)) * 100);
+      document.getElementById('progress-bar').style.width = pct + '%';
+      document.getElementById('progress-text').textContent = `Paso ${state.currentStep + 1} de ${total}`;
+      document.getElementById('progress-pct').textContent = pct + '%';
+      document.getElementById('btn-prev').style.visibility = state.currentStep === 0 ? 'hidden' : 'visible';
+      document.getElementById('btn-next').textContent = state.currentStep === total - 1 ? '🔄 Repetir' : 'Siguiente →';
+    }
+
+    function renderAveCounts(total) {
+      state.aveCount = 0;
+      document.getElementById('ave-counter').innerHTML =
+        Array.from({ length: total }, (_, i) =>
+          `<div class="ave-bead" id="bead-${i}" onclick="markAve(${i},${total})">${i + 1}</div>`
+        ).join('');
+      document.getElementById('ave-label').textContent = `0 / ${total} Ave Marías`;
+    }
+
+    function renderFAQ() {
+      document.getElementById('faq-list').innerHTML = FAQS.map((f, i) => `
+    <div class="faq-item" id="faq-${i}">
+      <div class="faq-q" onclick="toggleFAQ(${i})">
+        <span class="faq-q-text">${f.q}</span>
+        <div class="faq-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+      <div class="faq-a">${f.a}</div>
+    </div>`).join('');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2800);
+    }
+
+    /* ════ ACCIONES ════ */
+
+    /* ── nextStep / prevStep: scroll suave SOLO hasta prayer-col,
+       sin saltar al top de la sección ── */
+    function scrollToPrayerCol() {
+      const col = document.getElementById('prayer-col');
+      if (!col) return;
+      const rect = col.getBoundingClientRect();
+      const offset = 16; // margen superior en px
+      if (rect.top < offset || rect.top > window.innerHeight * 0.5) {
+        window.scrollTo({
+          top: window.scrollY + rect.top - offset,
+          behavior: 'smooth'
+        });
+      }
+      /* Si la card ya está visible en pantalla, no se mueve nada */
+    }
+
+    function nextStep() {
+      if (state.currentStep >= STEPS.length - 1) { resetRosary(); return; }
+      state.currentStep++;
+      renderStep();
+      scrollToPrayerCol();
+    }
+
+    function prevStep() {
+      if (state.currentStep > 0) {
+        state.currentStep--;
+        renderStep();
+        scrollToPrayerCol();
+      }
+    }
+
+    function resetRosary() {
+      state.currentStep = 0; STEPS = buildSteps(); renderStep();
+      scrollToPrayerCol();
+      showToast('🙏 Oración reiniciada con amor.');
+    }
+
+    function scrollToRosary() {
+      document.getElementById('rosario').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectDay(day) {
+      state.selectedDay = day;
+      state.currentStep = 0;
+      STEPS = buildSteps();
+      renderDayPills();
+      renderVideo();
+      renderStep();
+    }
+
+    function setExp(exp) {
+      state.mode = exp === 'video' ? 'completo' : exp;
+      ['completo', 'rapido', 'video'].forEach(id => {
+        document.getElementById('exp-' + id).classList.toggle('active', exp === id);
+      });
+
+      const prayerCol = document.getElementById('prayer-col');
+      const isVideo = exp === 'video';
+
+      /* En modo video: ocultar la columna de oración guiada */
+      prayerCol.style.display = isVideo ? 'none' : '';
+
+      if (!isVideo) {
+        state.currentStep = 0;
+        STEPS = buildSteps();
+        renderStep();
+      }
+    }
+
+    function markAve(index, total) {
+      state.aveCount = index + 1;
+      for (let i = 0; i < total; i++) {
+        const b = document.getElementById('bead-' + i);
+        if (b) b.classList.toggle('done', i <= index);
+      }
+      document.getElementById('ave-label').textContent = `${state.aveCount} / ${total} Ave Marías`;
+      if (state.aveCount === total) showToast('✨ ¡Bien! Avanza al siguiente paso.');
+    }
+
+    function toggleFAQ(i) {
+      const item = document.getElementById('faq-' + i);
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    }
+
+    function shareWhatsApp() {
+      const msg = encodeURIComponent(
+        '🌹 Te comparto este kit de oración para el Día de las Madres.\n' +
+        'Reza el Santo Rosario guiado paso a paso con amor y fe.\n👇\n' +
+        window.location.href
+      );
+      window.open('https://wa.me/?text=' + msg, '_blank');
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => showToast('🔗 ¡Enlace copiado!'))
+        .catch(() => showToast('Copia el enlace de la barra del navegador.'));
+    }
+
+    /* ════ SCROLL REVEAL ════ */
+    function initReveal() {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e, idx) => {
+          if (e.isIntersecting) {
+            setTimeout(() => e.target.classList.add('visible'), idx * 90);
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.10 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+
+    /* ════ INIT ════ */
+    document.addEventListener('DOMContentLoaded', () => {
+      STEPS = buildSteps();
+      renderDayPills();
+      renderVideo();
+      renderStep();
+      renderFAQ();
+      initReveal();
+      setTimeout(() => {
+        const m = MYSTERIES[DAY_MYSTERIES[state.selectedDay]];
+        showToast('🌹 Hoy: ' + m.name);
+      }, 1000);
+    });
+  </script>
+</body>
+
 </html>
