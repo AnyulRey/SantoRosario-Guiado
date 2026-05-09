@@ -4,17 +4,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Santo Rosario Guiado</title>
-  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Santo Rosario Guiado 🌹</title>
   <meta name="description"
-    content="Acompaña tu momento de fe, paz y gratitud. Reza el Santo Rosario guiado paso a paso." />
-  <meta property="og:title" content="Altar devocional· Santo Rosario" />
-  <meta property="og:description" content="Un regalo para orar con amor. Sigue el Santo Rosario paso a paso." />
+    content="Acompaña a mamá en un momento de fe, paz y gratitud. Reza el Santo Rosario guiado paso a paso." />
+  <meta property="og:title" content="Kit de Oración · Día de las Madres 🌹" />
+  <meta property="og:description"
+    content="Acompaña a mamá en un momento de fe, paz y gratitud. Reza el Santo Rosario guiado paso a paso." />
+  <meta property="og:image" content="https://santo-rosario-guiado.vercel.app/imagen2virgen.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://santo-rosario-guiado.vercel.app" />
+  <meta property="og:image" content="https://santo-rosario-guiado.vercel.app/imagen2virgen.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Kit de Oración" />
+  <link rel="apple-touch-icon" href="/imagen2virgen.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c8973a" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.png?v=2" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:wght@300;400;700&display=swap"
     rel="stylesheet" />
+
+
   <style>
     /* ═══════════════════════════════════════════
        TOKENS — paleta cálida, luminosa, premium
@@ -1462,7 +1479,7 @@
         <div class="hero-img-col reveal">
           <div class="hero-img-halo"></div>
           <div class="hero-img-frame">
-            <img src="virgen1HDredonda.png" alt="Virgen María con el Niño Jesús" />
+            <img src="/virgen1HDredonda.png" alt="Virgen María con el Niño Jesús" />
           </div>
         </div>
 
@@ -1502,7 +1519,7 @@
         <!-- Imagen del rosario físico -->
         <div class="reveal">
           <div class="inspir-img-wrap">
-            <img src="imagen2virgen.png" alt="Virgen María con rosas y rosario" />
+            <img src="/imagen2virgen.png" alt="Virgen María con rosas y rosario" />
           </div>
         </div>
 
@@ -1660,7 +1677,7 @@
 
         <div class="reveal">
           <div class="instruc-img-wrap">
-            <img src="imagen3vir.png" alt="Virgen María orando" class="instruc-img" />
+            <img src="/imagen3vir.png" alt="Virgen María orando" class="instruc-img" />
             <div class="instruc-img-badge">🌹 Altar devocional físico incluido</div>
           </div>
         </div>
@@ -1725,9 +1742,9 @@
   <footer>
     <div class="container">
       <div class="footer-imgs">
-        <img src="virgen1HDredonda.png" alt="" class="footer-img" />
-        <img src="imagen2virgen.png" alt="" class="footer-img" />
-        <img src="imagen3vir.png" alt="" class="footer-img" />
+        <img src="/virgen1HDredonda.png" alt="" class="footer-img" />
+        <img src="/imagen2virgen.png" alt="" class="footer-img" />
+        <img src="/imagen3vir.png" alt="" class="footer-img" />
       </div>
       <p class="footer-phrase">
         "María, Madre de amor hermoso,<br />
@@ -1737,6 +1754,20 @@
       <p class="footer-copy">Copyright © Anyul Rey</p>
     </div>
   </footer>
+
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="btn-top" style="
+    position:fixed; bottom:28px; right:24px; z-index:999;
+    width:48px; height:48px; border-radius:50%; border:none; cursor:pointer;
+    background:linear-gradient(135deg,#e8c87a,#c8973a);
+    box-shadow:0 4px 20px rgba(200,151,58,0.45);
+    display:none; align-items:center; justify-content:center;
+    transition:all .25s ease; -webkit-tap-highlight-color:transparent;
+  ">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3d2b1f" stroke-width="2.5"
+      stroke-linecap="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
 
   <div class="toast" id="toast"></div>
 
@@ -2025,7 +2056,13 @@ ${mystery.list.map(m => `<div class="mystery-item"><div class="mystery-num">${m.
 
     function scrollToRosary() {
       document.getElementById('rosario').scrollIntoView({ behavior: 'smooth' });
+
     }
+    // Botón volver arriba
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('btn-top');
+      btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
 
     function selectDay(day) {
       state.selectedDay = day;
