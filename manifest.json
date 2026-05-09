@@ -1,6 +1,6 @@
 {
     "name": "Kit de Oración · Día de las Madres",
-    "short_name": "Kit Oración",
+    "short_name": "Santo Rosario app",
     "description": "Reza el Santo Rosario guiado con amor y fe",
     "start_url": "/",
     "display": "standalone",
@@ -10,13 +10,13 @@
     "lang": "es",
     "icons": [
         {
-            "src": "imagen2virgen.png",
+            "src": "favicon.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "imagen2virgen.png",
+            "src": "favicon.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
